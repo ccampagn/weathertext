@@ -19,7 +19,7 @@ except configparser.NoOptionError :#except with no options error
     print('could not read configuration file')#Error message if can't read 
     sys.exit(1)  #exit program on error
 try:
-    page = requests.get("https://api.weatherbit.io/v2.0/forecast/daily?city=Kendall+Park,NJ&units=I&days=1&key="+apikey)#request for api
+    page = requests.get(apikey)#request for api
     data=page.json()#parse data into dict
     weather={"temp":data["data"][0]["temp"],"maxtemp":data["data"][0]["max_temp"],"mintemp":data["data"][0]["min_temp"],"pop":data["data"][0]["pop"],"precip":data["data"][0]["precip"]}#create dict for result
 except:#except with no options error
